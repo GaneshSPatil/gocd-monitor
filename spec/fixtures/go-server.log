@@ -1,0 +1,6 @@
+2016-06-14 10:52:19,331  INFO [qtp1033212949-3801153] GoSslSocketConnector:78 - Included ciphers: null
+2016-06-14 10:52:19,334  ERROR [qtp1033212949-3801153] GoSslSocketConnector:80 - Included protocols: null
+2016-06-14 10:52:19,334  WARN [qtp1033212949-3754873] GoSslSocketConnector:82 - Renegotiation Allowed: true
+2016-06-14 10:52:20,354  WARN [qtp1033212949-3754873] GoSslSocketConnector:82 - Renegotiation Allowed: false
+2016-05-18 09:00:18,894  FATAL [qtp1033212949-3754873] BuildRepositoryRemoteImpl:106 - bomb
+2016-05-18 09:32:38,872 DEBUG [cachedGoConfigRefreshExecutorThread] CachedFileGoConfig:98 - Config file (on disk) update check is in queue
