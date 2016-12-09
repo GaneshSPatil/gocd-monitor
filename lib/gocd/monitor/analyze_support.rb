@@ -29,7 +29,7 @@ module Gocd
           blocked_threads.each do |thread_id, details|
             same_thread_in_next_snapshot = blocked_threads_next[thread_id]
 
-            next if %w(TIMED_WAITING WAITING).include?(details['State'])
+            next if %w(TIMED_WAITING).include?(details['State'])
             next unless same_thread_in_next_snapshot
 
             if are_matching?(details['Stack Trace'], same_thread_in_next_snapshot['Stack Trace'])
