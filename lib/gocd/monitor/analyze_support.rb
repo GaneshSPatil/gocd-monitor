@@ -32,7 +32,7 @@ module Gocd
             next if %w(TIMED_WAITING WAITING).include?(details['State'])
             next unless same_thread_in_next_snapshot
 
-            if details['Stack Trace'] == same_thread_in_next_snapshot['Stack Trace']
+            if are_matching?(details['Stack Trace'], same_thread_in_next_snapshot['Stack Trace'])
               renderer.identical_threads({
                                            api_support_hash: api_support_hash,
                                            api_support_hash_next: api_support_hash_next,
@@ -73,6 +73,18 @@ module Gocd
 
       def get_log_files
         Dir[File.join(options.dest_dir, '*')].sort
+      end
+
+      def are_matching?(current_stack_trace, next_stack_trace)
+        if current_stack_trace.empty? || next_stack_trace.empty?
+          return
+        end
+        if current_stack_trace.size > next_stack_trace.size
+          temp = current_stack_trace
+          current_stack_trace = next_stack_trace
+          next_stack_trace = temp
+        end
+        (current_stack_trace - next_stack_trace).empty?
       end
     end
   end
