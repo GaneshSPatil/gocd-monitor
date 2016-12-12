@@ -66,7 +66,7 @@ module Gocd
       end
 
       def log_info_to_file(response)
-        time = Time.now.strftime('%Y%m%d_%H%M%S%z')
+        time = JSON.parse(response.body)["Timestamp"]
         filename = File.join(api_support_dir_name, time)
         filename <<  if response.headers['Content-Type'] =~ /\bjson\b/
           ".json"
